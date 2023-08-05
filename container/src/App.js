@@ -1,6 +1,12 @@
 import React from "react";
-import { mount as marketingMount } from "marketing/MarketingApp";
+import MarketingApp from "./components/MarketingApp";
 
 export default function App() {
-  return <h1>Hi There!</h1>;
+  return (
+    <div>
+      <h1>Hi There!</h1>
+      <hr />
+      <MarketingApp />
+    </div>
+  );
 }
