@@ -5,7 +5,11 @@ export default function MarketingApp() {
   const ref = useRef(null);
 
   useEffect(() => {
-    marketingMount(ref.current);
+    marketingMount(ref.current, {
+      onNavigate: () => {
+        console.log("the Container noticed navigation in Marketing");
+      },
+    });
   }, []);
 
   return <div ref={ref}></div>;
