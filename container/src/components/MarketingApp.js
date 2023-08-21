@@ -1,13 +1,16 @@
 import React, { useEffect, useRef } from "react";
 import { mount as marketingMount } from "marketing/MarketingApp";
+import { useHistory } from "react-router-dom";
 
 export default function MarketingApp() {
   const ref = useRef(null);
+  const history = useHistory();
 
   useEffect(() => {
     marketingMount(ref.current, {
-      onNavigate: () => {
-        console.log("the Container noticed navigation in Marketing");
+      onNavigate: ({ pathname: nextPathname }) => {
+        const { pathname } = history.location;
+        if (pathname !== nextPathname) history.push(nextPathname);
       },
     });
   }, []);
