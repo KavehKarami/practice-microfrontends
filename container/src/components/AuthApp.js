@@ -8,6 +8,7 @@ function AuthApp() {
 
   useEffect(() => {
     const { onParentNavigate } = authMount(ref.current, {
+      initialPath: history.location.pathname,
       onNavigate({ pathname: nextPathname }) {
         const { pathname } = history.location;
         if (pathname !== nextPathname) history.push(nextPathname);
