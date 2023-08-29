@@ -13,6 +13,10 @@ function AuthApp() {
         const { pathname } = history.location;
         if (pathname !== nextPathname) history.push(nextPathname);
       },
+
+      onSignIn() {
+        console.log("sign in!");
+      },
     });
 
     history.listen(onParentNavigate);

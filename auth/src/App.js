@@ -6,13 +6,17 @@ import Signup from "./components/Signup";
 
 const generateClassName = createGenerateClassName({ productionPrefix: "au" });
 
-export default function App({ history }) {
+export default function App({ history, onSignIn }) {
   return (
     <StylesProvider generateClassName={generateClassName}>
       <Router history={history}>
         <Switch>
-          <Route component={Signin} path="/auth/signin" exact />
-          <Route component={Signup} path="/auth/signup" exact />
+          <Route path="/auth/signin" exact>
+            <Signin onSignIn={onSignIn} />
+          </Route>
+          <Route path="/auth/signup" exact>
+            <Signup onSignIn={onSignIn} />
+          </Route>
         </Switch>
       </Router>
     </StylesProvider>
