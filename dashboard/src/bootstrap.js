@@ -3,7 +3,6 @@ import Dashboard from "./components/Dashboard.vue";
 
 const mount = (el) => {
   const app = createApp(Dashboard);
-  console.log(app);
   app.mount(el);
 };
 
